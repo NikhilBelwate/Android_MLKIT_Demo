@@ -23,7 +23,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.lucidea.lucidealocationmanager.mlBarCodeScanner.GraphicOverlay
+    <com.demo.mlkittest.mlBarCodeScanner.GraphicOverlay
         android:id="@+id/graphic_overlay"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

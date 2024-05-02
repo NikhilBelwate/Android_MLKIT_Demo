@@ -1,4 +1,4 @@
-package com.lucidea.lucidealocationmanager.mlBarCodeScanner
+package com.demo.mlkittest.mlBarCodeScanner
 
 
 internal class FrameMetadata private constructor(
