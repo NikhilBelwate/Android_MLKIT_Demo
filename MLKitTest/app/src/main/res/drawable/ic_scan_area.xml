@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:width="260dp"
+        android:height="260dp">
+        <shape android:shape="rectangle">
+            <solid android:color="@android:color/transparent" />
+        </shape>
+    </item>
+
+    <item
+        android:width="20dp"
+        android:height="3dp">
+        <shape android:shape="rectangle">
+            <solid android:color="#FFA500" />
+        </shape>
+    </item>
+
+    <item
+        android:width="3dp"
+        android:height="20dp">
+        <shape android:shape="rectangle">
+            <solid android:color="#FFA500" />
+        </shape>
+    </item>
+
+    <item
+        android:width="20dp"
+        android:height="3dp"
+        android:gravity="right">
+        <shape android:shape="rectangle">
+            <solid android:color="#FFA500" />
+        </shape>
+    </item>
+
+    <item
+        android:width="3dp"
+        android:height="20dp"
+        android:gravity="right">
+        <shape android:shape="rectangle">
+            <solid android:color="#FFA500" />
+        </shape>
+    </item>
+
+
+    <item
+        android:width="20dp"
+        android:height="3dp"
+        android:gravity="bottom">
+        <shape android:shape="rectangle">
+            <solid android:color="#FFA500" />
+        </shape>
+    </item>
+
+    <item
+        android:width="3dp"
+        android:height="20dp"
+        android:gravity="bottom">
+        <shape android:shape="rectangle">
+            <solid android:color="#FFA500" />
+        </shape>
+    </item>
+
+    <item
+        android:width="20dp"
+        android:height="3dp"
+        android:gravity="bottom|right">
+        <shape android:shape="rectangle">
+            <solid android:color="#FFA500" />
+        </shape>
+    </item>
+
+    <item
+        android:width="3dp"
+        android:height="20dp"
+        android:gravity="bottom|right">
+        <shape android:shape="rectangle">
+            <solid android:color="#FFA500" />
+        </shape>
+    </item>
+
+</layer-list>
