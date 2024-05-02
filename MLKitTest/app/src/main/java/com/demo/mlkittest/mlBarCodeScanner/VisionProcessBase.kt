@@ -1,4 +1,4 @@
-package com.lucidea.lucidealocationmanager.mlBarCodeScanner
+package com.demo.mlkittest.mlBarCodeScanner
 
 import android.content.Context
 import android.graphics.Bitmap
@@ -30,13 +30,13 @@ internal abstract class VisionProcessorBase<T> :
     @GuardedBy("this")
     private var latestImage: ByteBuffer? = null
     @GuardedBy("this")
-    private var latestImageMetaData: com.lucidea.lucidealocationmanager.mlBarCodeScanner.FrameMetadata? = null
+    private var latestImageMetaData: FrameMetadata? = null
 
     // To keep the images and metadata in process.
     @GuardedBy("this")
     private var processingImage: ByteBuffer? = null
     @GuardedBy("this")
-    private var processingMetaData: com.lucidea.lucidealocationmanager.mlBarCodeScanner.FrameMetadata? = null
+    private var processingMetaData: FrameMetadata? = null
     private var textList= mutableListOf<Text.TextBlock>()
 
     @ExperimentalGetImage

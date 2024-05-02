@@ -1,4 +1,4 @@
-package com.lucidea.lucidealocationmanager.mlBarCodeScanner
+package com.demo.mlkittest.mlBarCodeScanner
 
 import androidx.camera.core.ImageProxy
 import com.google.mlkit.common.MlKitException

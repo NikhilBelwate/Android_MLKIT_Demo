@@ -1,4 +1,4 @@
-package com.lucidea.lucidealocationmanager.mlBarCodeScanner;
+package com.demo.mlkittest.mlBarCodeScanner;
 
 import androidx.annotation.NonNull;
 

@@ -1,7 +1,5 @@
 package com.demo.mlkittest
 
-import android.app.Activity
-import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
@@ -14,13 +12,12 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.lucidea.lucidealocationmanager.databinding.ActivityQrcaptureBinding
-import com.lucidea.lucidealocationmanager.mlBarCodeScanner.MLBarcodeScanner
-import com.lucidea.lucidealocationmanager.models.LogLevel
-import com.lucidea.lucidealocationmanager.utils.Alerts
-import com.lucidea.lucidealocationmanager.utils.DeviceUtils
-import com.lucidea.lucidealocationmanager.utils.IntentConstants
-import com.lucidea.lucidealocationmanager.utils.Utils
+import com.demo.mlkittest.databinding.ActivityQrcaptureBinding
+import com.demo.mlkittest.utils.Alerts
+import com.demo.mlkittest.utils.App
+import com.demo.mlkittest.utils.DeviceUtils
+import com.demo.mlkittest.utils.IntentConstants
+import com.demo.mlkittest.mlBarCodeScanner.MLBarcodeScanner
 
 class QRCaptureActivity : AppCompatActivity() {
     private val TAG = "QRCaptureActivity.kt"
@@ -76,7 +73,7 @@ class QRCaptureActivity : AppCompatActivity() {
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET)
                 intent.putExtra(IntentConstants.RESULT, newVal)
                 intent.putExtra(IntentConstants.RESULT_FORMAT, displayValue)
-                setResult(Activity.RESULT_OK, intent)
+                setResult(RESULT_OK, intent)
                 finish()
             },
             focusBoxSize = if (DeviceUtils.isTablet(context = this)) resources.getDimensionPixelSize(
@@ -163,15 +160,12 @@ class QRCaptureActivity : AppCompatActivity() {
      * @param savedInstanceState saved previous state
      */
     override fun onCreate(savedInstanceState: Bundle?) {
-        LogLevel.verbose(TAG, "#### onCreate ####")
         super.onCreate(savedInstanceState)
         binding = ActivityQrcaptureBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        LogLevel.info("QrCaptureActivity", "Setup Started: ${Utils.getCurrentTime()}")
         setupScanCancel()
         setupCameraText()
         setupBarCodeBoxSize()
-        LogLevel.info("QrCaptureActivity", "Setup completed : ${Utils.getCurrentTime()}")
         checkCameraPermission()
     }
 
@@ -282,7 +276,6 @@ class QRCaptureActivity : AppCompatActivity() {
      * @return selected a correct button true or false.
      */
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        LogLevel.verbose(TAG, "#### onOptionsItemSelected ####")
         if (item.itemId == android.R.id.home) {
             onBackPressed()
             return true

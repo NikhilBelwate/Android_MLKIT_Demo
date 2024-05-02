@@ -13,8 +13,6 @@ import androidx.annotation.Nullable;
 import androidx.camera.core.ExperimentalGetImage;
 import androidx.camera.core.ImageProxy;
 
-import com.lucidea.lucidealocationmanager.mlBarCodeScanner.FrameMetadata;
-
 import java.io.ByteArrayOutputStream;
 import java.nio.ByteBuffer;
 

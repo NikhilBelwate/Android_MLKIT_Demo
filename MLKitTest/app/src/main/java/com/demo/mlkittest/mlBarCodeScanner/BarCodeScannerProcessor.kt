@@ -3,6 +3,8 @@ package com.demo.mlkittest.mlBarCodeScanner
 import android.graphics.Rect
 import android.graphics.RectF
 import androidx.camera.view.PreviewView
+import com.demo.mlkittest.utils.App
+import com.demo.mlkittest.utils.DeviceUtils
 import com.google.android.gms.tasks.Task
 import com.google.mlkit.vision.barcode.BarcodeScanner
 import com.google.mlkit.vision.barcode.BarcodeScannerOptions
@@ -10,10 +12,6 @@ import com.google.mlkit.vision.barcode.BarcodeScanning
 import com.google.mlkit.vision.barcode.common.Barcode
 import com.google.mlkit.vision.common.InputImage
 import com.google.mlkit.vision.text.Text
-import com.lucidea.lucidealocationmanager.App
-import com.lucidea.lucidealocationmanager.mlBarCodeScanner.MLBarcodeCallback
-import com.lucidea.lucidealocationmanager.mlBarCodeScanner.VisionProcessorBase
-import com.lucidea.lucidealocationmanager.utils.DeviceUtils
 import kotlin.math.abs
 
 internal class BarcodeScannerProcessor(

@@ -1,4 +1,4 @@
-package com.lucidea.lucidealocationmanager.mlBarCodeScanner;
+package com.demo.mlkittest.mlBarCodeScanner;
 
 import android.app.Application;
 import android.util.Log;
