@@ -39,7 +39,7 @@ class MLBarcodeScanner(
     private val previewView: PreviewView,
     private val drawOverlay: Boolean = true,
     private val drawBanner: Boolean = false,
-    private val targetResolution: Size = Size(768, 1024),
+    private val targetResolution: Size = Size(720, 1280),
     private val supportedBarcodeFormats: List<Int> = listOf(Barcode.FORMAT_ALL_FORMATS)
 ) : DefaultLifecycleObserver {
 
@@ -90,7 +90,7 @@ class MLBarcodeScanner(
             return
         }
         cameraProvider?.unbind(previewUseCase)
-        val builder = Preview.Builder().setTargetResolution(Size(2000, 2000))
+        val builder = Preview.Builder().setTargetResolution(getTargetResolution(context))
         previewUseCase = builder.build()
         previewUseCase?.setSurfaceProvider(previewView.surfaceProvider)
         cameraProvider?.bindToLifecycle(lifecycleOwner, cameraSelector, previewUseCase)
@@ -108,7 +108,7 @@ class MLBarcodeScanner(
             BarcodeScannerProcessor(
                 callback, drawOverlay, drawBanner, focusBoxSize, supportedBarcodeFormats,previewView
             )
-        val builder = ImageAnalysis.Builder().setTargetResolution(getTargetResolution(context,1.0))
+        val builder = ImageAnalysis.Builder().setTargetResolution(getTargetResolution(context))
         analysisUseCase = builder.build()
 
         needUpdateGraphicOverlayImageSourceInfo = true
@@ -137,27 +137,24 @@ class MLBarcodeScanner(
         cameraProvider?.bindToLifecycle(lifecycleOwner, cameraSelector, analysisUseCase)
     }
 
-    fun getTargetResolution(context: Context, factor: Double): Size {
+    fun getTargetResolution(context: Context): Size {
         val displayMetrics = context.resources.displayMetrics
         val screenWidth = displayMetrics.widthPixels
         val screenHeight = displayMetrics.heightPixels
 
         val aspectRatio = screenWidth.toDouble() / screenHeight.toDouble()
-        val reductionFactor = factor // Adjust this factor as needed
 
-        val reducedWidth = (screenWidth * reductionFactor).toInt()
-        val reducedHeight = (reducedWidth / aspectRatio).toInt()
         val isPortrait =
             context.resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT
-//        if (isPortrait) {
-//            return Size(720, 1280)
-//        } else {
-//            return Size(1280, 720)
-//        }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
-            return Size(reducedWidth, reducedWidth)
+        if (isPortrait) {
+            return Size(720, 1280)
+        } else {
+            return Size(1280, 720)
         }
-        return Size(reducedWidth,reducedHeight)
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+//            return Size(reducedWidth, reducedWidth)
+//        }
+//        return Size(reducedWidth,reducedHeight)
     }
 
     private fun aspectRatio(width: Int, height: Int): Int {

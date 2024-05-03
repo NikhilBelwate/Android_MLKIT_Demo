@@ -7,6 +7,7 @@ import android.content.pm.PackageManager
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultLauncher
@@ -17,7 +18,7 @@ import com.google.mlkit.vision.barcode.common.Barcode
 
 
 class MainActivity : AppCompatActivity() {
-    lateinit var resultEditTxt:EditText
+    lateinit var resultEditTxt:TextView
     lateinit var scanButton: Button
     private val MY_CAMERA_REQUEST_CODE=1
     lateinit var qrScan: Intent
@@ -28,8 +29,6 @@ class MainActivity : AppCompatActivity() {
         resultEditTxt=findViewById(R.id.result_ed_txt)
         scanButton=findViewById(R.id.scanButton)
         qrScan = Intent(this, QRCaptureActivity::class.java)
-        //qrScan.setOrientationLocked(false)
-        // Specify desired barcode formats
         qrScan.putExtra(
             "barcodeFormat",
             Barcode.FORMAT_QR_CODE or Barcode.FORMAT_CODE_39 or Barcode.FORMAT_CODE_128
