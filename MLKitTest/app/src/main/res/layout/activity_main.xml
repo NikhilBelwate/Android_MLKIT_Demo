@@ -6,12 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <EditText
+    <TextView
         android:id="@+id/result_ed_txt"
         android:layout_width="400dp"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:text="Tap Button to Scan"
         android:layout_margin="5dp"
+        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
