@@ -75,8 +75,8 @@ internal class BarcodeGraphic(
     private fun calculateFocusArea(): RectF {
         val height = overlay.measuredHeight.toFloat()
         val width = overlay.measuredWidth.toFloat()
-        val left = (width / 2) - (focusBoxSize / 2)
-        val right = (width / 2) + (focusBoxSize / 2)
+        val left = (width / 2) - (focusBoxSize / 2)-50
+        val right = (width / 2) + (focusBoxSize / 2)+50
         val top = (height / 2) - (focusBoxSize / 2)
         val bottom = (height / 2) + (focusBoxSize / 2)
         return RectF(left, top, right, bottom)
